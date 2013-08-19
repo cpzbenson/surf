@@ -32,16 +32,16 @@
 						$(this).parent().css("color", "");
 					}					
 				});				
-				<?
-				//$tabInit = ($_GET['tabInit']!="" ? ($_GET['tabInit']) : "waveTab");
+				<?php
+				$tabInit = (isset($_GET['tabInit']) ? ($_GET['tabInit']) : "waveTab");
 				
-				if($_GET['tabInit']!="" ){
+				if(isset($_GET['tabInit'])){
 					$tabInit = $_GET['tabInit'];
 				}else{
 					$tabInit = "waveTab";
 				}
 				?>
-				$("#<?echo $tabInit?>").click();		
+				$("#<?php echo $tabInit?>").click();		
 				
 				$("#myTab > li > a").click(function(){
 					window.history.pushState({}, document.title, "?tabInit="+$(this).attr("id"));
